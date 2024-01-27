@@ -3,6 +3,7 @@ import { Layout } from "../components/layout/Layout";
 import { Route, Routes } from "react-router-dom";
 import { PublicRoutes } from "./PublicRoutes";
 import { PrivateRoutes } from "./PrivateRoutes";
+import { Login } from "../components/pages/login/Login";
 
 export const Router = () => {
   return (
@@ -14,7 +15,7 @@ export const Router = () => {
           element={
             <PublicRoutes isLogged={false}>
               <Routes>
-                <Route path="/login" element={<>Login</>} />
+                <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<>register</>} />
               </Routes>
             </PublicRoutes>
