@@ -1,6 +1,7 @@
 import React from "react";
 import "./login.css";
 import { Box, Button, TextField } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   return (
@@ -32,6 +33,14 @@ export const Login = () => {
               autoComplete="current-password"
               /*  onChange={getInput} */
             />
+          </div>
+          <div className="link_container">
+            <Link to="/auth/register" className="link">
+              Register
+            </Link>
+            <Link to="/main" className="link">
+              Password Recovery
+            </Link>
           </div>
           <div className="button_container">
             <Button variant="contained" type="submit">
