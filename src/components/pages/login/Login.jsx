@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
 import { Box, Button, TextField } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
+  const [inputInfo, setInputInfo] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const getInput = (event) => {
+    setInputInfo({ ...inputInfo, [event.target.name]: event.target.value });
+  };
+
   return (
     <div className="login_contianer">
       <div className="box_container">
         <Box
           component="form"
-          /* onSubmit={handleSubmit} */
+          onSubmit={handleSubmit}
           sx={{
             "& .MuiTextField-root": { m: 1, width: "45ch" },
           }}
@@ -22,7 +33,7 @@ export const Login = () => {
               label="User Name"
               type="text"
               autoComplete="current-password"
-              /* onChange={getInput} */
+              onChange={getInput}
             />
             <TextField
               id="password"
@@ -30,8 +41,16 @@ export const Login = () => {
               label="Password"
               type="password"
               autoComplete="current-password"
-              /*  onChange={getInput} */
+              onChange={getInput}
             />
+          </div>
+          <div className="link_container">
+            <Link to="/auth/register" className="link">
+              Register
+            </Link>
+            <Link to="/main" className="link">
+              Password Recovery
+            </Link>
           </div>
           <div className="button_container">
             <Button variant="contained" type="submit">

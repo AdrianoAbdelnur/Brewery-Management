@@ -1,5 +1,5 @@
 .header_container {
-    height: 5rem;
+    min-height: 5rem;
     width: 100vw;
     background-color: rgb(19, 11, 93);
     display: flex;
