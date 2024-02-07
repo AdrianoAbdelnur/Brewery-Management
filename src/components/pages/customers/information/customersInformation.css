@@ -1,0 +1,6 @@
+.costumersInfo {
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 5rem);
+    min-height: 400px;
+}
