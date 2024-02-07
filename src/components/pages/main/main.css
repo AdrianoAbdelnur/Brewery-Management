@@ -1,0 +1,28 @@
+.main_container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 5rem);
+
+}
+
+.info_container{
+    background-color:  #062a77;
+    width: 20rem;   
+    height: fit-content;
+    min-height: 15rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.buttons_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.optionButton {
+    margin: .2rem !important;
+}
