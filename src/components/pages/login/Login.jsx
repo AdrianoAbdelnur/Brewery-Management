@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./login.css";
 import { Box, Button, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export const Login = () => {
   const [inputInfo, setInputInfo] = useState();
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    login(inputInfo.email, inputInfo.password);
   };
 
   const getInput = (event) => {
@@ -49,7 +52,7 @@ export const Login = () => {
               Register
             </Link>
             <Link to="/main" className="link">
-              Password Recovery
+              Forgot password?
             </Link>
           </div>
           <div className="button_container">

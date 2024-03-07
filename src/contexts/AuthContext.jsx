@@ -4,6 +4,7 @@ export const AuthContext = createContext();
 import React from "react";
 import { AuthReducer } from "../reducers/authReducer";
 import { clientAxios } from "../api/ClientAxios";
+import { types } from "../types/types";
 
 const AuthProvider = ({ children }) => {
   const initialValues = {
@@ -25,7 +26,7 @@ const AuthProvider = ({ children }) => {
       const { data: dataUser } = await clientAxios.get("/user/userData");
       if (dataUser) {
         dispatch({
-          type: "LOGIN",
+          type: types.auth.login,
           payload: {
             user: {
               id: dataUser.userFound._id,
@@ -47,7 +48,7 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem("jwtoken");
     if (!token) {
       dispatch({
-        type: "LOGOUT",
+        type: types.auth.logout,
         payload: {
           message: "Logout",
         },
@@ -57,7 +58,7 @@ const AuthProvider = ({ children }) => {
         const { data: dataUser } = await clientAxios.get("/user/userData");
         if (dataUser) {
           dispatch({
-            type: "LOGIN",
+            type: types.auth.login,
             payload: {
               user: {
                 id: dataUser.userFound._id,
@@ -79,7 +80,7 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("jwtoken");
     dispatch({
-      type: "LOGOUT",
+      type: types.auth.logout,
       payload: {
         message: "Logout success",
       },

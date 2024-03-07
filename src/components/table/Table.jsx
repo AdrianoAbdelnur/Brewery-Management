@@ -1,13 +1,12 @@
-import { Box } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { Box, Icon } from "@mui/material";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React from "react";
 
 export const Table = ({ columns, rows }) => {
   return (
     <Box
       sx={{
-        /* height: 400, */
-        maxHeight: 500,
+        maxHeight: 700,
         width: "90vw",
         background: "#212121",
         borderRadius: ".5rem",
@@ -23,7 +22,10 @@ export const Table = ({ columns, rows }) => {
             paginationModel: { page: 0, pageSize: 5 },
           },
         }}
-        pageSizeOptions={[5, 10, 15]}
+        pageSizeOptions={[5, 10]}
+        slots={{
+          toolbar: GridToolbar,
+        }}
       />
     </Box>
   );
