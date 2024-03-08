@@ -6,9 +6,12 @@ import { Button } from "@mui/material";
 import { AddCustomerModal } from "../../../modals/AddCustomerModal";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { GridActionsCellItem } from "@mui/x-data-grid";
+import { useNavigate } from "react-router-dom";
 
 export const CustomersInformation = () => {
+  let navigate = useNavigate();
   const { state, getAllCustomers, deleteCustomer } =
     useContext(CustomersContext);
   const [showModal, setShowModal] = React.useState(false);
@@ -89,6 +92,12 @@ export const CustomersInformation = () => {
 
   return (
     <div className="costumersInfo">
+      <div className="backButton_container">
+        <Button onClick={() => navigate("/main")} className="backButton">
+          <ArrowBackIcon />
+          back
+        </Button>
+      </div>
       <div className="addCust_Button_container">
         <Button
           className="AddCust_Button"
