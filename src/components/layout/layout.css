@@ -1,5 +1,7 @@
 .layout_container {
+    background-image: url(./../../assets/images/backgroundInox.jpg);
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    width: 100vw;
 }
