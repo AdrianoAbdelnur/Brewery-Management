@@ -7,6 +7,7 @@ import { AddCustomerModal } from "../../../modals/AddCustomerModal";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CircularProgress from "@mui/material/CircularProgress";
 import { GridActionsCellItem } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
 
@@ -89,6 +90,7 @@ export const CustomersInformation = () => {
   ];
 
   const rows = state.customers;
+  console.log(rows);
 
   return (
     <div className="costumersInfo">
@@ -107,7 +109,12 @@ export const CustomersInformation = () => {
           Add New Customer
         </Button>
       </div>
-      <Table columns={columns} rows={rows} />
+      {rows[0]?.barName ? (
+        <Table columns={columns} rows={rows} />
+      ) : (
+        <CircularProgress color="primary" size={80} thickness={6} />
+      )}
+
       <AddCustomerModal
         show={showModal}
         handleClose={handleClose}
