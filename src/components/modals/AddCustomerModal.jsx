@@ -1,6 +1,7 @@
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { CustomersContext } from "../../contexts/CustomersContext";
+import { useForm } from "../../hooks/useForm";
 
 const style = {
   position: "absolute",
@@ -16,8 +17,8 @@ const style = {
 };
 
 export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
+  const { inputInfo, getInput } = useForm();
   const { addCustomer, editCustomer } = useContext(CustomersContext);
-  const [inputInfo, setInputInfo] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,13 +29,9 @@ export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
         editCustomer(customertoEdit._id, inputInfo);
       }
     }
-    setInputInfo(null);
     handleClose();
   };
 
-  const getInput = (event) => {
-    setInputInfo({ ...inputInfo, [event.target.name]: event.target.value });
-  };
   return (
     <div>
       <Modal

@@ -3,18 +3,15 @@ import "./login.css";
 import { Box, Button, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { useForm } from "../../../hooks/useForm";
 
 export const Login = () => {
-  const [inputInfo, setInputInfo] = useState();
+  const { inputInfo, getInput } = useForm();
   const { login } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login(inputInfo.email, inputInfo.password);
-  };
-
-  const getInput = (event) => {
-    setInputInfo({ ...inputInfo, [event.target.name]: event.target.value });
   };
 
   return (
