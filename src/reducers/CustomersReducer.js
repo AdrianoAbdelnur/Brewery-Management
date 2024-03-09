@@ -17,7 +17,7 @@ export const CustomersReducer = (state={}, action) => {
         case types.customers.editCustomer: 
             return {
                 ...state,
-                customers : updateCustomers
+                customers : action.payload
             }
         case types.customers.deleteCustomer:    
             return {
