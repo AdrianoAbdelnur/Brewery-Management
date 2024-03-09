@@ -45,12 +45,15 @@ const CustomersProvider = ({ children }) => {
 
   const deleteCustomer = async (id) => {
     try {
-      const { data } = await clientAxios.put(
+      await clientAxios.put(
         "http://localhost:4000/api/client/deleteCustomer/" + id
       );
+      const updatedCustomers = state.customers.filter((customer) => {
+        return customer._id !== id;
+      });
       dispatch({
         type: types.customers.deleteCustomer,
-        payload: id,
+        payload: updatedCustomers,
       });
     } catch (error) {
       console.log(error);
@@ -63,10 +66,15 @@ const CustomersProvider = ({ children }) => {
         "http://localhost:4000/api/client/updateCustomer/" + id,
         payload
       );
-
+      const updatedCustomers = state.customers.map((customer) => {
+        if (customer._id === id) {
+          return data.updatedCustomer;
+        }
+        return customer;
+      });
       dispatch({
         type: types.customers.editCustomer,
-        payload: data.updatedCustomer,
+        payload: updatedCustomers,
       });
     } catch (error) {
       console.log(error);

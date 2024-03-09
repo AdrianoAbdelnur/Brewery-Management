@@ -15,29 +15,15 @@ export const CustomersReducer = (state={}, action) => {
                 customers : [...state.customers, action.payload]
             }
         case types.customers.editCustomer: 
-        const updateCustomer = action.payload
-        
-        const updateCustomers = state.customers.map(customer => {
-            if(customer._id === updateCustomer._id) {
-                return updateCustomer
-            }
-            return customer
-        })
             return {
                 ...state,
-                customers : updateCustomers
+                customers : action.payload
             }
-        case types.customers.deleteCustomer:
-            const costumerToRemoveId = action.payload
-            const updatedCustomers = state.customers.filter(customer => {
-                return customer._id !== costumerToRemoveId
-            }
-                )   
+        case types.customers.deleteCustomer:    
             return {
                 ...state,
-                customers : updatedCustomers
+                customers : action.payload
             }
-    
         default:
             state;
     }
