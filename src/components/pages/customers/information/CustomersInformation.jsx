@@ -90,7 +90,6 @@ export const CustomersInformation = () => {
   ];
 
   const rows = state.customers;
-  console.log(rows);
 
   return (
     <div className="costumersInfo">
