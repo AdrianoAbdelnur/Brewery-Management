@@ -4,9 +4,8 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
-import AuthProvider from "./contexts/AuthContext.jsx";
-import BarrelProvider from "./contexts/BarrelContext.jsx";
-import CustomersProvider from "./contexts/CustomersContext.jsx";
+import { Provider } from "react-redux";
+import { store } from "./store/store.js";
 
 const darkTheme = createTheme({
   palette: {
@@ -23,15 +22,11 @@ const darkTheme = createTheme({
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={darkTheme}>
-      <AuthProvider>
-        <BarrelProvider>
-          <CustomersProvider>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
-          </CustomersProvider>
-        </BarrelProvider>
-      </AuthProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>
 );
