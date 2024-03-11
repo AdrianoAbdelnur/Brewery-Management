@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CustomersInformation.css";
-import { CustomersContext } from "../../../../contexts/CustomersContext";
 import { Table } from "../../../table/Table";
 import { Button } from "@mui/material";
 import { AddCustomerModal } from "../../../modals/AddCustomerModal";
@@ -10,16 +9,21 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CircularProgress from "@mui/material/CircularProgress";
 import { GridActionsCellItem } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
+import {
+  deleteCustomer,
+  getAllCustomers,
+} from "../../../../store/slices/customers/thunks";
+import { useDispatch, useSelector } from "react-redux";
 
 export const CustomersInformation = () => {
+  const { customers, isLoading } = useSelector((state) => state.customers);
+  const dispatch = useDispatch();
   let navigate = useNavigate();
-  const { state, getAllCustomers, deleteCustomer } =
-    useContext(CustomersContext);
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [customerToEdit, setCustomerToEdit] = useState(null);
 
   useEffect(() => {
-    getAllCustomers();
+    dispatch(getAllCustomers());
   }, []);
 
   const handleOpen = () => setShowModal(true);
@@ -29,11 +33,11 @@ export const CustomersInformation = () => {
   };
 
   const handleDelete = (id) => () => {
-    deleteCustomer(id);
+    dispatch(deleteCustomer(id));
   };
 
   const handleEdit = (id) => () => {
-    setCustomerToEdit(state.customers.find((customer) => customer._id === id));
+    setCustomerToEdit(customers.find((customer) => customer._id === id));
     handleOpen();
   };
 
@@ -89,7 +93,7 @@ export const CustomersInformation = () => {
     },
   ];
 
-  const rows = state.customers;
+  const rows = customers;
 
   return (
     <div className="costumersInfo">

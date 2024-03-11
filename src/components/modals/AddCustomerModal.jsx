@@ -2,6 +2,11 @@ import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { CustomersContext } from "../../contexts/CustomersContext";
 import { useForm } from "../../hooks/useForm";
+import { useDispatch } from "react-redux";
+import {
+  addNewCustomer,
+  editCustomer,
+} from "../../store/slices/customers/thunks";
 
 const style = {
   position: "absolute",
@@ -17,16 +22,17 @@ const style = {
 };
 
 export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
+  const dispatch = useDispatch();
   const { inputInfo, getInput } = useForm();
-  const { addCustomer, editCustomer } = useContext(CustomersContext);
+  /* const { addCustomer, editCustomer } = useContext(CustomersContext); */
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputInfo) {
       if (!customertoEdit && inputInfo) {
-        addCustomer(inputInfo);
+        dispatch(addNewCustomer(inputInfo));
       } else if (customertoEdit) {
-        editCustomer(customertoEdit._id, inputInfo);
+        dispatch(editCustomer(customertoEdit._id, inputInfo));
       }
     }
     handleClose();
