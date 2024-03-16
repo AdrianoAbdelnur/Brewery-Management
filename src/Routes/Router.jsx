@@ -9,6 +9,8 @@ import { Barrels } from "../components/pages/barrels/Barrels";
 import { CustomersInformation } from "../components/pages/customers/information/CustomersInformation";
 import { useDispatch, useSelector } from "react-redux";
 import { checkTocken } from "../store/slices/auth/thunks";
+import { BarrelPerCustomer } from "../components/pages/customers/barrelsDetails/BarrelPerCustomer";
+import { NewPay } from "../components/pages/customers/newPay/NewPay";
 
 export const Router = () => {
   /* const { state, checkToken } = useContext(AuthContext); */
@@ -40,11 +42,15 @@ export const Router = () => {
             <PrivateRoutes isLogged={isLogged}>
               <Routes>
                 <Route path="/main" element={<Main />} />
-                <Route path="/barrels" element={<Barrels />} />
+                <Route
+                  path="/barrelPerCustomer"
+                  element={<BarrelPerCustomer />}
+                />
                 <Route
                   path="/customersInfo"
                   element={<CustomersInformation />}
                 />
+                <Route path="/newPay" element={<NewPay />} />
               </Routes>
             </PrivateRoutes>
           }
