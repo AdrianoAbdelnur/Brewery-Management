@@ -5,31 +5,33 @@ import { Button } from "@mui/material";
 import { AddCustomerModal } from "../../../modals/AddCustomerModal";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 import CircularProgress from "@mui/material/CircularProgress";
 import { GridActionsCellItem } from "@mui/x-data-grid";
-import { useNavigate } from "react-router-dom";
 import {
   deleteCustomer,
   getAllCustomers,
 } from "../../../../store/slices/customers/thunks";
 import { useDispatch, useSelector } from "react-redux";
+import { BackArrow } from "../../../backbutton/BackArrow";
 
 export const CustomersInformation = () => {
   const { customers, isLoading } = useSelector((state) => state.customers);
   const dispatch = useDispatch();
-  let navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
+
+  const [showAddCustModal, setShowAddCustModal] = useState(false);
   const [customerToEdit, setCustomerToEdit] = useState(null);
 
   useEffect(() => {
-    dispatch(getAllCustomers());
+    if (!customers.length) {
+      dispatch(getAllCustomers());
+    }
   }, []);
 
-  const handleOpen = () => setShowModal(true);
+  const handleOpen = () => setShowAddCustModal(true);
   const handleClose = () => {
     setCustomerToEdit(null);
-    setShowModal(false);
+    setShowAddCustModal(false);
   };
 
   const handleDelete = (id) => () => {
@@ -97,12 +99,7 @@ export const CustomersInformation = () => {
 
   return (
     <div className="costumersInfo">
-      <div className="backButton_container">
-        <Button onClick={() => navigate("/main")} className="backButton">
-          <ArrowBackIcon />
-          back
-        </Button>
-      </div>
+      <BackArrow />
       <div className="addCust_Button_container">
         <Button
           className="AddCust_Button"
@@ -119,7 +116,7 @@ export const CustomersInformation = () => {
       )}
 
       <AddCustomerModal
-        show={showModal}
+        show={showAddCustModal}
         handleClose={handleClose}
         customertoEdit={customerToEdit}
       />
