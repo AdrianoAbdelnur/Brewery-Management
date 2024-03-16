@@ -1,6 +1,5 @@
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
-import { CustomersContext } from "../../contexts/CustomersContext";
 import { useForm } from "../../hooks/useForm";
 import { useDispatch } from "react-redux";
 import {
@@ -24,7 +23,6 @@ const style = {
 export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
   const dispatch = useDispatch();
   const { inputInfo, getInput } = useForm();
-  /* const { addCustomer, editCustomer } = useContext(CustomersContext); */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,7 +67,7 @@ export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
                   label="Bar Name"
                   type="text"
                   onChange={getInput}
-                  defaultValue={customertoEdit?.barName || null}
+                  defaultValue={customertoEdit?.barName}
                 />
                 <TextField
                   id="barManager"
@@ -77,7 +75,7 @@ export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
                   label={"Bar Manager"}
                   type="text"
                   onChange={getInput}
-                  defaultValue={customertoEdit?.barManager || null}
+                  defaultValue={customertoEdit?.barManager}
                 />
                 <TextField
                   id="owner"
@@ -85,7 +83,7 @@ export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
                   label="Owner"
                   type="text"
                   onChange={getInput}
-                  defaultValue={customertoEdit?.owner || null}
+                  defaultValue={customertoEdit?.owner}
                 />
                 <TextField
                   id="location"
@@ -93,7 +91,7 @@ export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
                   label="Location"
                   type="text"
                   onChange={getInput}
-                  defaultValue={customertoEdit?.location || null}
+                  defaultValue={customertoEdit?.location}
                 />
               </div>
               <div className="button_container">
