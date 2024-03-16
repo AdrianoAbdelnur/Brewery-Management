@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./login.css";
 import { Box, Button, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -10,7 +10,6 @@ import { getLogin } from "../../../store/slices/auth/thunks";
 export const Login = () => {
   const dispatch = useDispatch();
   const { inputInfo, getInput } = useForm();
-  /* const { login } = useContext(AuthContext); */
 
   const handleSubmit = (e) => {
     e.preventDefault();
