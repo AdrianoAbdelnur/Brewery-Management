@@ -25,21 +25,16 @@ export const Main = () => {
           <Button
             variant="contained"
             className="optionButton"
-            color="secondary" /* onClick={()=>moveTo("/barrelsPerCustomer")} */
+            color="secondary"
+            onClick={() => moveTo("/barrelPerCustomer")}
           >
             barrels per customer
           </Button>
           <Button
             variant="contained"
             className="optionButton secondary"
-            color="secondary" /* onClick={()=>moveTo("/addclient")} */
-          >
-            Add a new customer
-          </Button>
-          <Button
-            variant="contained"
-            className="optionButton"
-            color="secondary" /* onClick={()=>moveTo("/pay")} */
+            color="secondary"
+            onClick={() => moveTo("/newPay")}
           >
             New Pay
           </Button>

@@ -1,17 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./header.css";
-import { AuthContext } from "../../../contexts/AuthContext";
 import { Button } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../store/slices/auth/authSlice";
 
 export const Header = () => {
-  const { state, logout } = useContext(AuthContext);
-  const { isLogged, user } = state;
+  /* const { isLogged, user } = state; */
+  const { isLogged, user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   return (
     <div className="header_container">
       {isLogged && (
         <>
-          hola {user.name} your role is : {user.role} and your id is: {user.id}
-          <Button variant="contained" onClick={logout}>
+          hola {user?.name} your role is : {user?.role}
+          <Button variant="contained" onClick={() => dispatch(logout())}>
             Logout
           </Button>
         </>

@@ -18,11 +18,4 @@
     background-color: '#0063cc',
 }
 
-.backButton_container{
-    display: flex;
-    width: 100%;
-}
 
-.backButton {
-    align-self: flex-start;
-}
