@@ -13,21 +13,13 @@ export const authSlice = createSlice({
     reducers: {
         login: (state, action) => {
             state.user = action.payload.user,
-              state.isLogged= true,
-              state.token= action.payload.token,
-              state.message= "User Logged successfully"
+            state.isLogged= true,
+            state.token= action.payload.token,
+            state.message= "User Logged successfully"
         },
         logout: (state) => {
             state.user = null
             state.isLogged= false
-            /* {
-                name: null,
-                email: null,
-                password: null,
-                createAt: null,
-                isDelete: null,
-                role: null
-            } */
         },
     },
 })
