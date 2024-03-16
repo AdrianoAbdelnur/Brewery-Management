@@ -64,18 +64,13 @@ export const NewPay = () => {
               onChange={(sss, newValue) => {
                 setValue(newValue);
               }}
-              name="kjhbsdaladlndsaljbsdljbsddlbadsalbasdlbasdldsalkj"
               id="customer"
               options={customers}
               getOptionLabel={(option) => option.barName}
               filterOptions={filterOptions}
               sx={{ width: 300 }}
               renderInput={(params) => (
-                <TextField
-                  {...params}
-                  name="kjhbsdaladlndsaljbsdljbsddlbadsalbasdlbasdldsalkj"
-                  label="customer"
-                />
+                <TextField {...params} label="customer" />
               )}
             />
             <TextField
