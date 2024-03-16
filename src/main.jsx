@@ -16,6 +16,9 @@ const darkTheme = createTheme({
     secondary: {
       main: "#666666",
     },
+    info: {
+      main: "#c6ff00",
+    },
   },
 });
 
