@@ -34,11 +34,12 @@ export const NewPay = () => {
   });
 
   useEffect(() => {
-    if (message.message)
+    if (message.message) {
       setTimeout(() => {
         dispatch(messageManager({}));
         navigate("/main");
       }, 3000);
+    }
   }, [message]);
 
   const handleSubmit = (e) => {
@@ -61,7 +62,7 @@ export const NewPay = () => {
         >
           <div className="textFields_container">
             <Autocomplete
-              onChange={(sss, newValue) => {
+              onChange={(s, newValue) => {
                 setValue(newValue);
               }}
               id="customer"

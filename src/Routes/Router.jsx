@@ -5,15 +5,16 @@ import { PublicRoutes } from "./PublicRoutes";
 import { PrivateRoutes } from "./PrivateRoutes";
 import { Login } from "../components/pages/login/Login";
 import { Main } from "../components/pages/main/Main";
-import { Barrels } from "../components/pages/barrels/Barrels";
 import { CustomersInformation } from "../components/pages/customers/information/CustomersInformation";
 import { useDispatch, useSelector } from "react-redux";
 import { checkTocken } from "../store/slices/auth/thunks";
 import { BarrelPerCustomer } from "../components/pages/customers/barrelsDetails/BarrelPerCustomer";
 import { NewPay } from "../components/pages/customers/newPay/NewPay";
+import { InformationStatus } from "../components/pages/barrels/infotmationStatus/InformationStatus";
+import { ProductStock } from "../components/pages/products/productStock/ProductStock";
+import { BeerStyles } from "../components/pages/products/beerStyles/BeerStyles";
 
 export const Router = () => {
-  /* const { state, checkToken } = useContext(AuthContext); */
   const { isLogged } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -51,6 +52,9 @@ export const Router = () => {
                   element={<CustomersInformation />}
                 />
                 <Route path="/newPay" element={<NewPay />} />
+                <Route path="/infoStatus" element={<InformationStatus />} />
+                <Route path="/productStock" element={<ProductStock />} />
+                <Route path="/beerStyles" element={<BeerStyles />} />
               </Routes>
             </PrivateRoutes>
           }

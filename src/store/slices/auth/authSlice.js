@@ -4,7 +4,7 @@ const initialState = {
     user: {},
     isLogged: false,
     token: "",
-    message: "",
+    message: {},
 }
 
 export const authSlice = createSlice({
@@ -20,8 +20,12 @@ export const authSlice = createSlice({
         logout: (state) => {
             state.user = null
             state.isLogged= false
+            localStorage.removeItem("jwtoken")
         },
+        authMessage: (state, action) => {
+            state.message = action.payload
+        }
     },
 })
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, authMessage } = authSlice.actions;

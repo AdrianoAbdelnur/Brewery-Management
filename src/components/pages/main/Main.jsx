@@ -47,25 +47,44 @@ export const Main = () => {
             variant="contained"
             className="optionButton"
             color="secondary"
-            onClick={() => moveTo("/barrels")}
-          >
-            Barrels
-          </Button>
-          <Button
-            variant="contained"
-            className="optionButton"
-            color="secondary"
-            /* onClick={() => moveTo("/statusInformation")} */
+            onClick={() => moveTo("/infoStatus")}
           >
             Information status
           </Button>
+        </div>
+      </div>
+      <div className="info_container barrelColor">
+        <h3>Product</h3>
+        <div className="buttons_container">
           <Button
             variant="contained"
             className="optionButton"
             color="secondary"
-            /* onClick={() => moveTo("/workingPage")} */
+            onClick={() => moveTo("/productStock")}
           >
-            barrel per client
+            Product Stock
+          </Button>
+          <Button
+            variant="contained"
+            className="optionButton"
+            color="secondary"
+            onClick={() => moveTo("/beerStyles")}
+          >
+            Styles
+          </Button>
+          <Button
+            variant="contained"
+            className="optionButton"
+            color="secondary" /* onClick={()=>moveTo("/prices")} */
+          >
+            Prices
+          </Button>
+          <Button
+            variant="contained"
+            className="optionButton"
+            color="secondary" /* onClick={()=>moveTo("/productions")} */
+          >
+            Productions
           </Button>
         </div>
       </div>
