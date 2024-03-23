@@ -16,7 +16,6 @@ const style = {
 };
 
 export const DetailsBarrelsModal = ({ show, handleClose, rows }) => {
-  console.log(rows);
   const columns = [
     {
       field: "order",
