@@ -1,5 +1,5 @@
 import { clientAxios } from "../../../api/ClientAxios";
-import { login, logout } from "./authSlice";
+import { authMessage, login, logout } from "./authSlice";
 
 
 export const getLogin = (email, password) => {
@@ -22,7 +22,10 @@ export const getLogin = (email, password) => {
         }
         ));
         } catch (error) {
-            console.log(error)
+          dispatch(authMessage({
+            message: error.response.data.message,  
+            type: "error"
+    }))
         }
     }
 }

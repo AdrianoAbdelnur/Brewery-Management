@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./login.css";
-import { Box, Button, TextField } from "@mui/material";
+import { Alert, Box, Button, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useForm } from "../../../hooks/useForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { getLogin } from "../../../store/slices/auth/thunks";
+import { authMessage } from "../../../store/slices/auth/authSlice";
 
 export const Login = () => {
   const dispatch = useDispatch();
+  const { message } = useSelector((state) => state.auth);
   const { inputInfo, getInput } = useForm();
+
+  useEffect(() => {
+    if (message.message) {
+      setTimeout(() => {
+        dispatch(authMessage({}));
+      }, 3000);
+    }
+  }, [message]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,6 +64,9 @@ export const Login = () => {
               Forgot password?
             </Link>
           </div>
+          {message.message && (
+            <Alert severity={message?.type}>{message?.message}</Alert>
+          )}
           <div className="button_container">
             <Button variant="contained" type="submit">
               Login
