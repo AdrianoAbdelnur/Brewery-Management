@@ -70,7 +70,6 @@ export const addNewPay = (pay) => {
                 type: "success"
             }))
         } catch (error) {
-            console.log(error)
             dispatch(messageManager({
                 message: error.response.data.message,  
                 type: "error"
