@@ -95,7 +95,7 @@ export const AddCustomerModal = ({ show, handleClose, customertoEdit }) => {
                 />
               </div>
               <div className="button_container">
-                <Button variant="contained" color="error" type="submit">
+                <Button variant="contained" color="error" onClick={handleClose}>
                   cancel
                 </Button>
                 <Button variant="contained" type="submit">
