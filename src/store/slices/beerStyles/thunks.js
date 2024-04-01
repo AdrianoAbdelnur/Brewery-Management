@@ -17,7 +17,7 @@ export const addNewStyle = (styleInfo) => {
     return async(dispatch) => {
         try {
             const { data } = await clientAxios.post("/styles/addNewStyle", styleInfo)
-            dispatch(addStyle(data.newStyle))
+            dispatch(addStyle({style: data.newStyle}))
             dispatch(stylesmsg({
                 message: data.message,
                 type: "success"
