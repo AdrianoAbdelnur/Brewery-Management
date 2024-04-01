@@ -101,7 +101,7 @@ export const BarrelPerCustomer = () => {
     const rows = details.map((barrel, index) => {
       return {
         customer: barrel.customer.barName,
-        _id: barrel._id,
+        id: barrel._id,
         order: index + 1,
         cap: barrel.capacity,
         status: barrel.statusBarrel,
@@ -173,7 +173,7 @@ export const BarrelPerCustomer = () => {
   return (
     <div className="barrelPerCustomer_container">
       <BackArrow />
-      <Table columns={columns} rows={rows} /* cellsStyle="barrels" */ />
+      <Table columns={columns} rows={rows} />
       <div>
         <DetailsBarrelsModal
           show={showModal}

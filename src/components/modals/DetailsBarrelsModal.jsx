@@ -1,6 +1,7 @@
 import { Box, Grid, Modal, Typography } from "@mui/material";
 import React from "react";
 import { Table } from "../table/Table";
+import { DataGrid } from "@mui/x-data-grid";
 
 const style = {
   position: "absolute",
@@ -20,6 +21,7 @@ export const DetailsBarrelsModal = ({ show, handleClose, rows }) => {
     {
       field: "order",
       headerName: "#",
+      type: "number",
       width: 60,
       hideable: false,
     },
@@ -32,16 +34,19 @@ export const DetailsBarrelsModal = ({ show, handleClose, rows }) => {
     {
       field: "status",
       headerName: "Status",
+      type: "string",
       width: 200,
     },
     {
       field: "deliDate",
       headerName: "Delivered Date",
+      type: "string",
       width: 150,
     },
     {
       field: "style",
       headerName: "style",
+      type: "string",
       width: 150,
     },
   ];
@@ -55,7 +60,7 @@ export const DetailsBarrelsModal = ({ show, handleClose, rows }) => {
     >
       <Box sx={style}>
         <h2>BAR: {rows[0]?.customer}</h2>
-        <Table columns={columns} rows={rows} toolbar={false} />
+        <DataGrid rows={rows} columns={columns} />
       </Box>
     </Modal>
   );

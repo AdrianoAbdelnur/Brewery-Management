@@ -2,7 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState= {
     recipes: [],
-    message: ""
+    message: {
+        message: null,
+        type: null,
+    }
 }
 
 
@@ -14,15 +17,12 @@ export const recipeSlice = createSlice({
             state.recipes = action.payload.recipes
         },
         newRecipe : (state, action) => {
-            console.log(action.payload.newRecipe)
-            state.recipes = state.recipes.map((recipe) => {
-                if (recipe.name = action.payload.newRecipe.name) {
-                    return action.payload.newRecipe
-                } return recipe
-            })
-            console.log(state.recipes)
+            state.recipes = action.payload.newList
+        },
+        messageManagerRecipe: (state, action) => {
+            state.message= action.payload
         }
     },
 })
 
-export const { getRecipes, newRecipe } = recipeSlice.actions
+export const { getRecipes, newRecipe, messageManagerRecipe } = recipeSlice.actions

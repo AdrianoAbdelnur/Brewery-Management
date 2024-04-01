@@ -88,10 +88,20 @@ export const AddStyleModal = ({ show, handleClose }) => {
                 <Alert severity="success">{message?.message}</Alert>
               )}
               <div className="button_container">
-                <Button variant="contained" color="error" onClick={handleClose}>
+                <Button
+                  variant="contained"
+                  color="error"
+                  onClick={handleClose}
+                  disabled={message.message}
+                >
                   cancel
                 </Button>
-                <Button variant="contained" color="primary" type="submit">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  disabled={message.message}
+                >
                   Add New Style
                 </Button>
               </div>

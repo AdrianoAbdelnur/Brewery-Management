@@ -1,5 +1,5 @@
 import { clientAxios } from "../../../api/ClientAxios"
-import { getRecipes, newRecipe } from "./RecipeSlice"
+import { getRecipes, messageManagerRecipe, newRecipe } from "./RecipeSlice"
 
 
 
@@ -15,16 +15,36 @@ export const getAllRecipes = () => {
 }
 
 export const addRecipe = (recipe) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {  
         try {
-            const {data} =await clientAxios.post("/recipe/newRecipe", recipe)
+            const { recipes } = getState().recipes
+            const name = recipe?.name
+            const {data} = await clientAxios.post("/recipe/newRecipe", recipe)
             if (data.recipeFound) {
-                dispatch(newRecipe({newRecipe : data.recipeFound}))
+                let newList = recipes.map((recipe) => {
+                    if (recipe.name === data.recipeFound.name) {
+                        return data.recipeFound
+                    } return recipe
+                })
+                dispatch(newRecipe({newList}))
+                dispatch(messageManagerRecipe({
+                    message: data.message,  
+                    type: "success"
+                }))
             } else if (data.newRecipe) {
-                dispatch(newRecipe({newRecipe : data.newRecipe}))
+                let newList = [...recipes, recipe]
+                dispatch(newRecipe({newList}))
+                await clientAxios.patch("/styles/updateRecipe", {name, hasRecipe: true})
+                dispatch(messageManagerRecipe({
+                    message: data.message,  
+                    type: "success"
+                }))
             }
         } catch (error) {
-            console.log(error)
+            dispatch(messageManagerRecipe({
+                message: error.response.data.message,  
+                type: "error"
+            }))
         }
     }
 }
