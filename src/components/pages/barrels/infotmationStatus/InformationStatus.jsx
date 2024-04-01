@@ -38,7 +38,7 @@ export const InformationStatus = () => {
           margin: "2rem",
         }}
       >
-        <Table aria-label="simple table">
+        <Table>
           <TableHead>
             <TableRow>
               <TableCell>details</TableCell>
@@ -51,8 +51,8 @@ export const InformationStatus = () => {
           </TableHead>
           <TableBody>
             {barrels.map((barrel, index) => (
-              <>
-                <TableRow key={barrel.name}>
+              <React.Fragment key={barrel._id}>
+                <TableRow>
                   <TableCell>
                     <IconButton
                       onClick={() => setOpen(open === index ? -1 : index)}
@@ -112,7 +112,7 @@ export const InformationStatus = () => {
                     </Collapse>
                   </TableCell>
                 </TableRow>
-              </>
+              </React.Fragment>
             ))}
           </TableBody>
         </Table>
