@@ -13,6 +13,7 @@ import { NewPay } from "../components/pages/customers/newPay/NewPay";
 import { InformationStatus } from "../components/pages/barrels/infotmationStatus/InformationStatus";
 import { ProductStock } from "../components/pages/products/productStock/ProductStock";
 import { BeerStyles } from "../components/pages/products/beerStyles/BeerStyles";
+import { Prices } from "../components/pages/products/prices/Prices";
 
 export const Router = () => {
   const { isLogged } = useSelector((state) => state.auth);
@@ -55,6 +56,7 @@ export const Router = () => {
                 <Route path="/infoStatus" element={<InformationStatus />} />
                 <Route path="/productStock" element={<ProductStock />} />
                 <Route path="/beerStyles" element={<BeerStyles />} />
+                <Route path="/prices" element={<Prices />} />
               </Routes>
             </PrivateRoutes>
           }
