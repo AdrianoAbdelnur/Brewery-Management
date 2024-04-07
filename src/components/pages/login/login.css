@@ -10,7 +10,7 @@
     background-color: rgb(36, 36, 36);
     margin: 3rem;
     height: fit-content;
-    padding: 3rem;
+    padding: 1rem 3rem;
     border-radius: 3rem;
     outline: 2px rgb(85, 0, 255) solid;
 }

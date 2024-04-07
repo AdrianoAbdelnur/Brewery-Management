@@ -51,6 +51,7 @@ export const NewPay = () => {
     <div className="newPay_container">
       <BackArrow />
       <div className="box_container">
+        <h2 className="titlePay">New Pay</h2>
         <Box
           component="form"
           onSubmit={handleSubmit}

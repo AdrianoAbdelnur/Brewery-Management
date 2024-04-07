@@ -26,3 +26,22 @@ export const addNewStyle = (styleInfo) => {
             console.log(error)
         }
 }}
+
+export const updatePrices = (newPrices) => {
+    return async(dispatch) => {
+        for (const price of newPrices) {
+            try {
+                const { data } = await clientAxios.patch("/styles/updatePrices", price)
+                console.log(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        try {
+            const {data} = await clientAxios("/styles/getStyles")
+            dispatch(getStyles({styles : data.stylesFound}))
+        } catch (error) {
+            console.log(error)
+        }
+
+}}
