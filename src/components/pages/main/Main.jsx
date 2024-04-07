@@ -72,13 +72,16 @@ export const Main = () => {
           >
             Styles
           </Button>
-          <Button
-            variant="contained"
-            className="optionButton"
-            color="secondary" /* onClick={()=>moveTo("/prices")} */
-          >
-            Prices
-          </Button>
+          {
+            <Button
+              variant="contained"
+              className="optionButton"
+              color="secondary"
+              onClick={() => moveTo("/prices")}
+            >
+              Prices
+            </Button>
+          }
           <Button
             variant="contained"
             className="optionButton"
