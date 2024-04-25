@@ -1,6 +1,5 @@
-import { Box, Grid, Modal, Typography } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import React from "react";
-import { Table } from "../table/Table";
 import { DataGrid } from "@mui/x-data-grid";
 
 const style = {
