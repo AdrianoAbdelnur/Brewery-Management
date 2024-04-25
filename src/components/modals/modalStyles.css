@@ -1,3 +1,7 @@
 .ingredientsList {
     margin: 0.2rem !important;
 }
+
+.css-84nhb1-MuiAutocomplete-root {
+    width: auto !important;
+}
