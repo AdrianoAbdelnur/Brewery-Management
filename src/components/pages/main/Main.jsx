@@ -85,7 +85,8 @@ export const Main = () => {
           <Button
             variant="contained"
             className="optionButton"
-            color="secondary" /* onClick={()=>moveTo("/productions")} */
+            color="secondary"
+            onClick={() => moveTo("/productions")}
           >
             Productions
           </Button>
