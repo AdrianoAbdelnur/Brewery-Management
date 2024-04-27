@@ -8,10 +8,11 @@ export const salesSlice = createSlice({
     name: 'sales',
     initialState,
     reducers: {
-        addSale: (state, action) => {
+        getSales: (state, action) => {
             state.sales = action.payload.sales
         },
+      
     },
 })
 
-export const { addSale } = salesSlice.actions
+export const { getSales } = salesSlice.actions
