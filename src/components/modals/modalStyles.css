@@ -5,3 +5,19 @@
 .css-84nhb1-MuiAutocomplete-root {
     width: auto !important;
 }
+
+.css-1nrlq1o-MuiFormControl-root {
+    width: 100%;
+}
+
+.porcentDiscount {
+    display: flex;
+    flex-direction: row;
+}
+
+.finalPrice {
+    flex: 1 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
