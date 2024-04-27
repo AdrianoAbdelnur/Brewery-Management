@@ -7,7 +7,7 @@ import { useForm } from "../../../../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCustomers } from "../../../../store/slices/customers/thunks";
 import { addNewPay } from "../../../../store/slices/pay/thunks";
-import { addNewSale } from "../../../../store/slices/sales/thunks";
+import { getAllSales } from "../../../../store/slices/sales/thunks";
 import { messageManager } from "../../../../store/slices/pay/paySlice";
 import { useNavigate } from "react-router-dom";
 
@@ -25,7 +25,7 @@ export const NewPay = () => {
     if (!customers.length) {
       dispatch(getAllCustomers());
     }
-    dispatch(addNewSale(startDate, endDate));
+    dispatch(getAllSales(startDate, endDate));
   }, []);
 
   const filterOptions = createFilterOptions({
