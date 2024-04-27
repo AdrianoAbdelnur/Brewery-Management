@@ -92,6 +92,24 @@ export const Main = () => {
           </Button>
         </div>
       </div>
+      <div className="info_container">
+        <Button
+          variant="contained"
+          className="optionButton"
+          color="secondary"
+          onClick={() => moveTo("/sales")}
+        >
+          Sales
+        </Button>
+        <Button
+          variant="contained"
+          className="optionButton"
+          color="secondary"
+          onClick={() => moveTo("/costs")}
+        >
+          Costs
+        </Button>
+      </div>
     </div>
   );
 };
