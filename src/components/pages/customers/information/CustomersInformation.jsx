@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./CustomersInformation.css";
+import "./customersInformation.css";
 import { Table } from "../../../table/Table";
 import { Button } from "@mui/material";
 import { AddCustomerModal } from "../../../modals/AddCustomerModal";
