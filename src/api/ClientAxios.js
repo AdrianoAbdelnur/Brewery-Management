@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const clientAxios = axios.create(
     {
-        baseURL: "http://localhost:4000/api",
+        baseURL: "https://barreltrackerback.onrender.com/api",
         timeout: 12000,
         headers: {
             "Content-Type": "application/json"
