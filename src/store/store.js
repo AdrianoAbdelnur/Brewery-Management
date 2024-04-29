@@ -7,6 +7,7 @@ import { paySlice } from "./slices/pay/paySlice";
 import { stylesSlice } from "./slices/beerStyles/stylesSlice";
 import { recipeSlice } from "./slices/recipe/RecipeSlice";
 import { productionsSlice } from "./slices/productions/productionsSlice";
+import { costsSlice } from "./slices/costs/costsSlice";
 
 
 export const store = configureStore({
@@ -18,6 +19,7 @@ export const store = configureStore({
         pay: paySlice.reducer,
         styles : stylesSlice.reducer,
         recipes : recipeSlice.reducer,
-        productions : productionsSlice.reducer
+        productions : productionsSlice.reducer,
+        costs : costsSlice.reducer
     }
 })
